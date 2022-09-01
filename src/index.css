@@ -51,4 +51,8 @@ button {
   border: none;
   outline: none;
   color: #FFF;
+  font-size: 20px;
+  padding: 16px;
+  cursor: pointer;
+  transition: 0.4s;
 }
