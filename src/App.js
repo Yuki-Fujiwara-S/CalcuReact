@@ -41,9 +41,9 @@ function App() {
 
         <div className="digits">
           {createDigits()}
-          <button>0</button>
-          <button>.</button>
-          <button>=</button>
+          <button onClick={() => updateCalc(`0`)}>0</button>
+          <button onClick={() => updateCalc(`.`)}>.</button>
+          <button onClick={() => updateCalc(`=`)}>=</button>
         </div>
       </div>
     </div>
