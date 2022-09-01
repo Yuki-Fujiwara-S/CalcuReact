@@ -29,6 +29,7 @@ function App() {
         </div>
 
         <div className="digits">
+          {createDigits()}
           <button>0</button>
           <button>.</button>
           <button>=</button>
