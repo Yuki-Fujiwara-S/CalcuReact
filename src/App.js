@@ -4,6 +4,8 @@ function App() {
   const [calc, setCalc] = useState("");
   const [result, setResult] = useState("");
 
+  const ops = ['/', '*', '+', '-', '.']
+
   const createDigits = () => {
     const digits = [];
     for (let i = 0; i < 10; i++) {
