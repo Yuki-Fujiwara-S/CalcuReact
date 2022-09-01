@@ -1,4 +1,17 @@
 function App() {
+
+  const createDigits = () => {
+    const digits = [];
+    for (let i = 0; i < 10; i++) {
+      digits.push(
+        <button key={i}>{i}</button>
+      )
+    }
+
+    return digits;
+  }
+
+
   return (
     <div className="App">
       <div className="calculator">
@@ -17,15 +30,8 @@ function App() {
 
         <div className="digits">
           <button>0</button>
-          <button>1</button>
-          <button>2</button>
-          <button>3</button>
-          <button>4</button>
-          <button>5</button>
-          <button>6</button>
-          <button>7</button>
-          <button>8</button>
-          <button>9</button>
+          <button>.</button>
+          <button>=</button>
         </div>
       </div>
     </div>
