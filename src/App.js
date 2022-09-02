@@ -45,6 +45,7 @@ function App() {
     const value = calc.slice(0, -1);
     setCalc(value);
 
+    // add condition to update result based on if operator is at the end of new value
     if (ops.includes(value.slice(-1))) {
       setResult(eval(value.toString().slice(0, -1)));
     } else {
