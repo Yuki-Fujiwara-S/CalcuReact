@@ -4,12 +4,12 @@ function App() {
   const [calc, setCalc] = useState("");
   const [result, setResult] = useState("");
 
-  const ops = ['/', '*', '+', '-', '.'];
+  const ops = ["/", "*", "+", "-", "."];
 
-  const updateCalc = value => {
+  const updateCalc = (value) => {
     if (
-      ops.includes(value) && calc === '' || 
-      ops.includes(value) && ops.includes(calc.slice(-1)) 
+      (ops.includes(value) && calc === "") ||
+      (ops.includes(value) && ops.includes(calc.slice(-1)))
     ) {
       return;
     }
@@ -18,29 +18,45 @@ function App() {
     if (!ops.includes(value)) {
       setResult(eval(calc + value).toString());
     }
-  }
+  };
 
   const createDigits = () => {
     const digits = [];
     for (let i = 1; i < 10; i++) {
       digits.push(
-        <button onClick={() => updateCalc(i.toString())} key={i}>{i}</button>
-      )
+        <button onClick={() => updateCalc(i.toString())} key={i}>
+          {i}
+        </button>
+      );
     }
 
     return digits;
-  }
+  };
 
   const calculate = () => {
     setCalc(eval(calc).toString());
-  }
+  };
 
+  const deleteLast = () => {
+    if (calc == "") {
+      return;
+    }
+
+    const value = calc.slice(0, -1);
+    setCalc(value);
+
+    if (ops.includes(value.slice(-1))) {
+      setResult(eval(value.toString().slice(0, -1)));
+    } else {
+      setResult(eval(value.toString()));
+    }
+  };
 
   return (
     <div className="App">
       <div className="calculator">
         <div className="display">
-          {result ? <span> ({result}) </span> : ''} &nbsp;
+          {result ? <span> ({result}) </span> : ""} &nbsp;
           {calc || "0"}
         </div>
 
@@ -50,7 +66,7 @@ function App() {
           <button onClick={() => updateCalc(`+`)}>+</button>
           <button onClick={() => updateCalc(`-`)}>-</button>
 
-          <button>DEL</button>
+          <button onClick={deleteLast}>DEL</button>
         </div>
 
         <div className="digits">
